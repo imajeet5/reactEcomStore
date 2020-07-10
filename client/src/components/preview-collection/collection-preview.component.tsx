@@ -2,7 +2,9 @@ import React from "react";
 
 import "./collection-preview.style.scss";
 
-interface item {
+import CollectionItem from "../collection-item/collection-item.component";
+
+export interface item {
   id: number;
   name: string;
   imageUrl: string;
@@ -24,8 +26,8 @@ const CollectionPreview: React.FunctionComponent<props> = ({
     <div className="preview">
       {items
         .filter((_, idx) => idx < 4)
-        .map((item) => (
-          <div key={item.id}>{item.name}</div>
+        .map(({ id, ...itemProps }) => (
+          <CollectionItem key={id} {...itemProps} />
         ))}
     </div>
   </div>
