@@ -9,19 +9,24 @@ import SignInAndSignUp from "./pages/signIn-signUp/signIn-signUp.component";
 import { auth } from "./firebase/firebase.util";
 
 class App extends React.Component<any, S> {
-  state = { currentUser: null };
+  state: S = { currentUser: null };
+  unsubscribeFromAuth: firebase.Unsubscribe | null = null;
 
   componentDidMount() {
-    auth.onAuthStateChanged((user) => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       this.setState({ currentUser: user });
       console.log(user);
     });
   }
 
+  componentWillUnmount() {
+    if (this.unsubscribeFromAuth) this.unsubscribeFromAuth();
+  }
+
   render() {
     return (
       <div>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
