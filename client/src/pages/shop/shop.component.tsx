@@ -7,9 +7,7 @@ class ShopPage extends React.Component {
   state = {
     collections: SHOP_DATA,
   };
-  constructor(props: any) {
-    super(props);
-  }
+
 
   render() {
     const { collections } = this.state;
