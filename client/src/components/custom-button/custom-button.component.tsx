@@ -15,5 +15,6 @@ export default CustomButton;
 
 interface props {
   children: string;
+  onClick?: () => Promise<firebase.auth.UserCredential>;
   type?: "button" | "submit" | "reset";
 }
