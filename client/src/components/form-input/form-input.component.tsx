@@ -1,14 +1,13 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 
 import "./form-input.styles.scss";
 
 const FormInput: React.FunctionComponent<props> = ({
-  handleChange,
   label,
   ...otherProps
 }) => (
   <div className="group">
-    <input className="form-input" onChange={handleChange} {...otherProps} />
+    <input className="form-input" {...otherProps} />
     {label ? (
       <label
         className={`${
@@ -25,10 +24,11 @@ const FormInput: React.FunctionComponent<props> = ({
 export default FormInput;
 
 interface props {
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  // handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
   value: string;
   name: string;
   type: string;
   required: boolean;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
