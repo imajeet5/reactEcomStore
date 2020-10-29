@@ -17,8 +17,5 @@
     "url": "https://github.com/imajeet5/reactEcomStore/issues"
   },
   "homepage": "https://github.com/imajeet5/reactEcomStore#readme",
-  "dependencies": {
-    "@types/react-router-dom": "^5.1.5",
-    "react-router-dom": "^5.2.0"
-  }
+  "dependencies": {}
 }

@@ -15,7 +15,6 @@ class App extends React.Component<any, S> {
   componentDidMount() {
     // this will trigger whenever user signup using google
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-    
       // this.setState({ currentUser: user });
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
